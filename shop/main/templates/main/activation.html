@@ -1,0 +1,19 @@
+{% extends 'main/header.html' %}
+
+
+{% block content %}
+<br><br>
+
+  <div class="container-fluid">
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            Enter email otp:
+        </p>
+        <input type="text" name="otp">
+        <button style="background-color:#F4EB16; color:blue" class="btn btn-outline-info" type="submit">submit</button>
+    </form>
+</div>
+{% endblock %}
+
+

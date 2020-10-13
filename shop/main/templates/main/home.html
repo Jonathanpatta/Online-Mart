@@ -1,0 +1,44 @@
+{% extends 'main/header.html' %}
+
+
+{% block content %}
+<br><br>
+
+  <div class="container-fluid">
+      <div class="card-columns">
+      {% for item in items %}
+      
+          <div class="col-sm">
+
+              <div class="card" >
+                  <img class="card-img-top animate__animated animate__zoomIn" src="{{item.img.url}}" alt="Card image cap">
+                  <div class="card-body">
+                  <h5 class="card-title"><b>{{item.name}}</b></h5>
+                  <p class="card-text text-truncate ">{{item.description}}</p>
+                  
+                  </div>
+                  <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><b>Price:</b> {{item.price}} rupees</li>
+                      <li class="list-group-item"><b>Created On:</b> {{item.time_of_creation}}</li>
+                  </ul>
+                  <div class="card-body">
+                      <a class="btn btn-success" id="ItemID-{{item.pk}}" onclick="AddToCart(this.id);loadCart(this.id,this.parent);">Add to Cart</a>
+                      <span class="badge badge-light">
+                          {% for key,value in cart_items %}
+                            {% if key == item.pk %}
+                                X{{value}}
+                            {% endif %}
+                          {% endfor %}
+
+                        </span>
+                        <a href="/item/{{item.pk}}" class="btn btn-primary" >Details</a>
+                  </div>
+              </div>
+          
+      </div>
+      {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+  

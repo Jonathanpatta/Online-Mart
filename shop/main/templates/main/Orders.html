@@ -1,0 +1,32 @@
+{% extends 'main/header.html' %}
+
+
+{% block content %}
+<br><br>
+
+
+
+<div class="container">
+    {% for order in orders %}
+    
+      <div class="card">
+        <h5 class="card-header">Order #{{order.0.pk}}</h5>
+        
+        <ul class="list-group">
+          {% for item in order.1 %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <a href="/item/{{item.0.id}}" class="animate__animated animate__fadeInDown">{{item.0.name}}</a>
+              <span class="badge badge-primary badge-pill">{{item.0.price}} x{{item.1}}</span>
+            </li>
+          {% endfor %}
+        </ul>
+        <div class="card-body">
+          <h5 class="card-title text-right">Total Price: {{order.0.Total_price}} Rupees</h5>
+          <p class="card-text text-right">{{order.0.time_of_creation}}</p>
+        </div>
+      </div>
+      <br><br>
+    {% endfor %}
+</div>
+
+{% endblock %}
