@@ -2,10 +2,10 @@
 
 ## Installation and Usage
 
-'''bash
+```bash
 git clone https://github.com/Jonathanpatta/Online-Mart.git
 python3 manage.py runserver
-'''
+```
 
 ## Features
 
