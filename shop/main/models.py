@@ -28,7 +28,7 @@ class Profile(models.Model):
 
 class Order(models.Model):
     user = models.ForeignKey(User,blank=True,null=True,on_delete=models.SET_NULL)
-    items = models.ManyToManyField(Item,blank=True,null=True)
+    items = models.ManyToManyField(Item,blank=True)
     Total_price = models.FloatField(blank=True,null=True)
 
     Cart_json = models.TextField(null=True,blank=True)

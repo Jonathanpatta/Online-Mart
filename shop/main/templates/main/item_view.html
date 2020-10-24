@@ -12,9 +12,10 @@
               <h2 class="animate__animated animate__rubberBand">{{item.name}}</h2>
             </div>
             <div class="card-body">
+              <img class="card-img-top animate__animated animate__zoomIn" src="{{item.img.url}}" alt="Card image cap" style="height: 300px; width: 300px;">
               <h5 class="card-title">Price: {{item.price}} Rupees</h5>
               <p class="card-text">{{item.description}}</p>
-              <a href="/home" class="btn btn-primary" onclick="AddToCart(this.id);">Add to Cart</a>
+              <a href="/home" class="btn btn-primary" id="ItemID-{{item.id}}" onclick="AddToCart(this.id);">Add to Cart</a>
             </div>
             <div class="card-footer text-muted">
               {{item.time_of_creation}}
