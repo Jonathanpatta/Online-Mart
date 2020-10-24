@@ -99,7 +99,7 @@ def register(request):
                         This is the otp: {random_otp} and expires on {profile.otp_expiration_date}.
                         """
 
-            #try:
+            
             server = smtplib.SMTP('smtp.gmail.com',587)
             server.ehlo()
             server.starttls()
@@ -109,15 +109,9 @@ def register(request):
             server.close()      
             print("Successfully sent email")
             messages.info(request,f"Otp sent to {user.email} and expires by {profile.otp_expiration_date}")
-            #except smtplib.SMTPException:
-            #username = form.cleaned_data.get('username')
-            #login(request, user)
-            #return redirect("main:homepage")
+            
             return redirect("main:activation")
-            #user = form.save()
-            #username = form.cleaned_data.get('username')
-            #login(request, user)
-            #return redirect("main:homepage")
+            
 
         else:
             for msg in form.error_messages:
@@ -168,7 +162,7 @@ def cart(request):
             items.append([item,cart_items[item_pk],item.price])
             
     
-    #items = Item.objects.all()
+    
 
         
     context={"cart":user_cart,
