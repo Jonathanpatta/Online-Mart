@@ -99,16 +99,18 @@ def register(request):
                         This is the otp: {random_otp} and expires on {profile.otp_expiration_date}.
                         """
 
-            
-            server = smtplib.SMTP('smtp.gmail.com',587)
-            server.ehlo()
-            server.starttls()
-            server.ehlo()
-            server.login(sender,'udxfkgullsrkfauu')
-            server.sendmail(sender, receivers, message)   
-            server.close()      
-            print("Successfully sent email")
-            messages.info(request,f"Otp sent to {user.email} and expires by {profile.otp_expiration_date}")
+            try:
+                server = smtplib.SMTP('smtp.gmail.com',587)
+                server.ehlo()
+                server.starttls()
+                server.ehlo()
+                server.login(sender,'udxfkgullsrkfauu')
+                server.sendmail(sender, receivers, message)   
+                server.close()      
+                print("Successfully sent email")
+                messages.info(request,f"Otp sent to {user.email} and expires by {profile.otp_expiration_date}")
+            except:
+                messages.error(request,f"faled to verify {user.email}")
             
             return redirect("main:activation")
             
@@ -138,10 +140,11 @@ def activation(request):
             if timezone.now() < profile.otp_expiration_date:
                 profile.verified = True
                 profile.save()
+                messages.success(request,"Verified !!")
                 return redirect("main:homepage")
 
     
-    return render(request,"main/activation.html",{})
+    return redirect("main:homepage")
 
 
 

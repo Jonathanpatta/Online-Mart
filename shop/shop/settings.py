@@ -121,6 +121,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = "C:/Users/Jonathan/Documents/vit/useless docs/sem5/iwp/project/code/shop/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+#"C:/Users/Jonathan/Documents/vit/useless docs/sem5/iwp/project/code/shop/media/"
 MEDIA_URL = "/media/"
 
+STATIC_ROOT = STATIC_ROOT = os.path.join(BASE_DIR, "static/")

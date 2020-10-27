@@ -4,6 +4,7 @@
 
 ```bash
 git clone https://github.com/Jonathanpatta/Online-Mart.git
+cd Online-Mart/shop
 python3 manage.py runserver
 ```
 
