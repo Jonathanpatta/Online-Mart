@@ -144,7 +144,7 @@ def activation(request):
                 return redirect("main:homepage")
 
     
-    return redirect("main:homepage")
+    return render(request,"main/activation.html",{})
 
 
 
