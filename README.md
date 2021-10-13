@@ -10,10 +10,10 @@ python3 manage.py runserver
 
 ## Features
 
-* Search based on item name and description
+* Full text search based on item name and description
 * Order History
 * Item View
-* Cart system
+* Cart system written from scratch in javascript.
 * Email Verification for Users
 
 ## Stack used
@@ -21,4 +21,4 @@ python3 manage.py runserver
 * Django
 * Bootstrap
 * Animate.css
-* sqlite3
+* PostgreSQL
